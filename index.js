@@ -25,14 +25,15 @@
                 return null;
             }
             var c = key[idx];
-            if (c < node.character)
+            if (c < node.character) {
                 return getNode(node.left, key, idx);
-            else if (c > node.character)
+            } else if (c > node.character) {
                 return getNode(node.right, key, idx);
-            else if (idx < key.length -1)
+            } else if (idx < key.length - 1) {
                 return getNode(node.middle, key, idx + 1);
-            else
+            } else {
                 return node;
+            }
         }
     };
 
@@ -63,15 +64,15 @@
     module.exports = TST;
 
     if (module.parent === null) {
-       main();
+        main();
     }
 
     function main() {
         console.log('running module...');
         var tst = new TST();
-        tst.put("jason", 32);
-        tst.put("jones", 42);
-        console.log(tst.get("jones"));
+        tst.put('jason', 32);
+        tst.put('jones', 42);
+        console.log(tst.get('jones'));
     }
 
 }());
