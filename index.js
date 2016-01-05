@@ -13,7 +13,7 @@
 
     function TST() {
         this.root = null;
-        this.size = 0;
+        this._size = 0;
     }
 
     TST.prototype.get = function (key) {
@@ -46,7 +46,7 @@
             if (node === null) {
                 node = new TSTNode(value);
                 node.character = c;
-                self.size++;
+                self._size++;
             }
             if (c < node.character) {
                 node.left = putItem(node.left, key, value, idx);
@@ -61,18 +61,10 @@
         }
     };
 
+    TST.prototype.size = function () {
+        return this._size;
+    };
+
     module.exports = TST;
-
-    if (module.parent === null) {
-        main();
-    }
-
-    function main() {
-        console.log('running module...');
-        var tst = new TST();
-        tst.put('jason', 32);
-        tst.put('jones', 42);
-        console.log(tst.get('jones'));
-    }
 
 }());
